@@ -1,0 +1,15 @@
+
+}
+h2 { font-color: black; font-size: 40px; font-family: "Courier"; background-color: white; }
+.carousel-inner img {
+	margin:auto;
+}
+p { font-size: 60px; font-family:"Bedrock"; text-align: center;
+}
+
+#rainbow {
+	background-image: url("rainbow.jpg");
+	height: 135px; 
+	width: 100%;
+	background-repeat: repeat-x;
+}
