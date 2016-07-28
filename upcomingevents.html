@@ -1,0 +1,185 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>POLITICS</title>
+	<title>Upcoming Events</title>
+	<style>
+      html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 100%;
+}
+    </style>
+</head>
+
+<body>
+
+
+<!-- This is for the navbar -->
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicious.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="politicious.html">Home</a></li>
+      <li><a href="congress.html">Congress</a></li>
+      <li><a href="#">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+      <li class="active"><a href="upcomingevents.html">Upcoming Events</a></li>
+    </ul>
+  </div>
+</nav>
+ <h3>Upcoming Events</h3>
+    <div id="map"></div>
+    <script>function initMap() {
+  var center_of_us = {lat: 39.8282, lng: -98.5795};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 5,
+    center: center_of_us
+  });
+
+  var content_huffman ='<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">San Francisco Bay Weekend for Jared Huffman</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>When</b> Aug 5th - Aug 8th, 2016'+
+    '<br><b>Where</b> Cavallo Point Lodge - 601 Murray Cir, Sausalito'
+    +'<p><a href="https://html1-f.scribdassets.com/yjm29ggw059le5o/images/1-89053e252e.jpg">invite</a></p>'+
+      '</div>'+
+      '</div>';
+  var iw_huffman = new google.maps.InfoWindow({
+    content: content_huffman
+  });
+  var m_huffman = new google.maps.Marker({
+    position: {lat: 37.8376,lng:-122.4794},
+    map: map,
+    //title: 'HUFFMAN'
+  });
+  m_huffman.addListener('click', function() {
+    iw_huffman.open(map, m_huffman);
+  });
+
+    var content_pac ='<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Annual Saratoga Weekend for Joe Pac</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>When</b> Aug 5th - Aug 7th, 2016'+
+    '<br><b>Where</b> Embassy Suites Saratoga Springs - 86 Congress St, Saratoga Springs'
+    +'<p><a href="https://html1-f.scribdassets.com/88ir7xyudc58s42y/images/1-3014aecc65.jpg">invite</a></p>'+
+      '</div>'+
+      '</div>';
+  var iw_pac = new google.maps.InfoWindow({
+    content: content_pac
+  });
+  var m_pac = new google.maps.Marker({
+    position: {lat: 43.079349,lng:-73.790155},
+    map: map,
+    //title: 'HUFFMAN'
+  });
+  m_pac.addListener('click', function() {
+    iw_pac.open(map, m_pac);
+  });
+
+   var content_dp ='<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Maine Lobster Bake for Maine Democratic Party</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>When</b> Aug 7th, 2016'+
+    "<br><b>Where</b> Wolfe's Neck Farm - 625 Wolfe's Neck Road, Freeport"
+    +'<p><a href="https://html2-f.scribdassets.com/63rwpijlhc5cmqca/images/1-1a50875731.jpg">invite</a></p>'+
+      '</div>'+
+      '</div>';
+  var iw_dp = new google.maps.InfoWindow({
+    content: content_dp
+  });
+  var m_dp = new google.maps.Marker({
+    position: {lat: 43.827692,lng:-70.084272},
+    map: map,
+  });
+  m_dp.addListener('click', function() {
+    iw_dp.open(map, m_dp);
+  });
+
+
+   var content_fitz ='<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">23rd Annual Fitzgerald Open for Scott Fitzgerald</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>When</b> Aug 8th, 2016'+
+    "<br><b>Where</b> Old Hickory Country Club - W7596 State Road 33, Beaver Dam"
+    +'<p><a href="https://html2-f.scribdassets.com/4t773chtc05014vi/images/1-ade82fb6bd.jpg">invite</a></p>'+
+      '</div>'+
+      '</div>';
+  var iw_fitz = new google.maps.InfoWindow({
+    content: content_fitz
+  });
+  var m_fitz = new google.maps.Marker({
+    position: {lat: 43.448118,lng:-88.778847},
+    map: map,
+  });
+  m_fitz.addListener('click', function() {
+    iw_fitz.open(map, m_fitz);
+  });  
+
+  var content_levin ='<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Goal PAC Weekend for Sander Levin</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>When</b> Aug 11th - Aug 14th, 2016'+
+    "<br><b>Where</b> Harbor View Hotel & Resort - 131 N Water Street, Edgartown"
+    +'<p><a href="https://html1-f.scribdassets.com/5ov1hm2ups5az6lp/images/1-a7e179ee83.jpg">invite</a></p>'+
+      '</div>'+
+      '</div>';
+  var iw_levin = new google.maps.InfoWindow({
+    content: content_levin
+  });
+  var m_levin = new google.maps.Marker({
+    position: {lat: 41.392403,lng:-70.506501},
+    map: map,
+  });
+  m_levin.addListener('click', function() {
+    iw_levin.open(map, m_levin);
+  });
+
+
+  var content_swalwell ='<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Fleet Week San Francisco for Eric Swalwell</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>When</b> Oct 7th - Oct 9th, 2016'+
+    "<br><b>Where</b> TBD"
+    +'<p><a href="https://html2-f.scribdassets.com/7fyp5spyrk5d2du1/images/1-95dfa16a2d.png">invite</a></p>'+
+      '</div>'+
+      '</div>';
+  var iw_swalwell = new google.maps.InfoWindow({
+    content: content_swalwell
+  });
+  var m_swalwell = new google.maps.Marker({
+    position: {lat: 37.713634,lng:-122.420654},
+    map: map,
+  });
+  m_swalwell.addListener('click', function() {
+    iw_swalwell.open(map, m_swalwell);
+  });  
+}</script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWr0t_zDazI3nQ6bYMRZoAVwSxcLl-lSI&callback=initMap">
+    </script>
+<!-- End of nav bar -->
+
+</body>
+</html>
