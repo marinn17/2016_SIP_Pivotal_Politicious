@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body onload="pageopen()">
+
+<p id="voting">Voting Stances</p>
+
+	<script>
+	function pageopen () {
+		var id = window.location.href.split("member_id=")[1]
+
+    	var xhr = new XMLHttpRequest();
+    	xhr.open("GET", "http://api.nytimes.com/svc/politics/v3/us/legislative/congress/members/" + id + "/votes.json?apikey=203f43277b8b4d5e8f2f65180fead182", false);
+    	xhr.send();
+
+    	console.log(xhr.status);
+    	console.log(xhr.statusText);
+
+   		var stanceinfo = xhr.response
+   		var splice = stanceinfo.split('"bill":')
+   		var text = ""
+   		//individual bill info
+   		for (var x = 1; x < splice.length - 1; x++) {
+            var spliceBill = splice[x].split('":');
+            var title = spliceBill[3].substring(2,spliceBill[3].indexOf('",'));
+         	var latest_action = spliceBill[4].substring(2, spliceBill[4].indexOf(' }'))
+            if (spliceBill.length == 15){
+            	text += "Title: " + title + "<br>"
+            	text += "Latest action: " + latest_action + "<br>"
+            	text += "<br><br>"
+
+            } 
+            
+        }
+
+        var stance = document.getElementById("voting");
+        stance.innerHTML = text;
+
+
+}
+	</script>
+
+</body>
+</html>
