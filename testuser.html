@@ -1,0 +1,87 @@
+<html>
+<head>
+	<script src="politicswebsite.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700'
+ rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'> 
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!-- end fonts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>POLITICIOUS</title>
+<link rel="stylesheet" type="text/css" href="politicswebsite.css"> 
+
+	<title></title>
+</head>
+<body>
+	<!-- This is for the navbar -->
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="politicswebsite.html">Home</a></li>
+      <li><a href="congressapi.html">Congress</a></li>
+      <li><a href="#">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+      <li><a href="upcomingevents.html">Upcoming Events</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a href="testuser.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="testuserlogin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- End of nav bar -->
+	<div class="drovio-identity">
+	<h2>Sign Up</h2>
+	<form action="" method="post" class="signup-form">
+		<div class="form-body">
+			<input id="" class="form-input lpinp" name="firstname" type="text" required autofocus placeholder="First name">
+			<input id="" class="form-input lpinp" name="lastname" type="text" required placeholder="Last name">
+			<input id="" class="form-input lpinp" name="email" type="email" required placeholder="Email">
+			<input id="" class="form-input lpinp" name="emailconfirm" type="email" required placeholder="Confirm email">
+			<input id="" class="form-input lpinp" name="password" type="password" required placeholder="Password">
+		</div>
+		<span> By registering you are agreeing to our <a href=".">Terms of service</a>, <a href=".">Security policy</a> and <a href=".">Cookies policy</a>. </span>
+		<div class="form-controls">
+			<button class="uiFormButton positive" type="submit">Sign Up</button>
+		</div>
+	</form>
+	 
+</div>
+
+</body>
+</html>
+<style>
+.drovio-identity { height: auto; overflow: auto; max-width: 400px; margin: 0 auto; }
+form { margin: 0 auto; }
+form > .form-body { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow: auto; }
+form > .form-controls { clear: both; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; overflow: auto; }
+.inputGroup > input { vertical-align: middle }
+.form-input, textarea { border: 1px solid rgba(120, 120, 120, 1); color: #343434; padding: 3px; margin: 0px; }
+.form-input[type=checkbox] { margin: 5px 3px; border: none; width: auto; outline: none; }
+.uiFormButton { background: linear-gradient(#FEFEFE, #f0f0f0); background: -webkit-linear-gradient(#FEFEFE, #f0f0f0); background: -moz-linear-gradient(#FEFEFE, #f0f0f0); border: 1px solid #58585B; border-color: #cdced0 #c5c6c8 #b6b7b9; color: #545454; padding: 3px 10px; line-height: 16px; cursor: pointer; margin: 2px; width: auto; text-transform: capitalize; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+.uiFormButton.positive { background: linear-gradient(#BBE2B1, #B1DAA1); background: -webkit-linear-gradient(#BBE2B1, #B1DAA1); background: -moz-linear-gradient(#BBE2B1, #B1DAA1); border: 1px solid #43B549; color: #545454; }
+.uiFormButton.positive:hover { border: 1px solid #43B549; }
+.uiFormButton:hover { background-color: #EEE; border: 1px solid rgba(100, 100, 100, 0.5); }
+.uiFormButton.disabled, .uiFormButton.positive.disabled { background: linear-gradient(#DADADA, #D1D2D3); background: -webkit-linear-gradient(#DADADA, #D1D2D3); background: -moz-linear-gradient(#DADADA, #D1D2D3); border-color: #cdced0 #c5c6c8 #b6b7b9; cursor: default; color: #848484; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; }
+.uiFormLabel { cursor: pointer; text-transform: capitalize; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.simpleFormRow { position: relative; margin: auto; clear: both; padding: 5px 0px; vertical-align: middle; overflow: auto; }
+.simpleFormRow input { width: 200px; }
+.simpleFormRow textarea { width: 200px; max-width: 50%; }
+.simpleFormRow select { width: 200px; border: 1px solid #777; padding: 3px; margin: 0px; }
+.lpinp {width:100%;padding:10px 12px;margin:8px 0px;font-size:14px;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;border-color:#777;color:#777;outline-color:#CCC;}
+@media screen and (max-width:500px) {
+.simpleFormRow textarea, .simpleFormRow select, .simpleFormLabel { width: 100px; }
+.simpleFormNotes { margin-left: 100px; }
+.formControls .simpleFormRow { padding-left: 100px; }
+span {padding-bottom: 20px;}
+}
+.social-login-button { width: 50px; height: 50px; margin: 20px 2px;}
+</style>
