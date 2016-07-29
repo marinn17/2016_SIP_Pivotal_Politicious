@@ -1,0 +1,108 @@
+<html>
+<head>
+
+    <script src="polit.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+<link rel="stylesheet" type="text/css" href="politicswebsite.css">
+    <title>Congress</title>
+</head>
+<body>
+
+<!-- This is for the navbar -->
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="politicswebsite.html">Home</a></li>
+      <li class="active"><a href="congressapi.html">Congress</a></li>
+      <li><a href="#">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- End of nav bar -->
+<h1>Find your House and Senate representative</h1>
+    <!-- input and button not finished -->
+    <div class="form-group">
+      <label for="usr">Enter your ZIP code:</label>
+      <input type="text" class="form-control" id="usr">
+    </div>
+    <p id="invalid"></p>
+    <button type="button" class="btn btn-default" onclick="getzip()">Submit</button>
+
+    <p id="representative"></p>
+    
+    <script>
+    function getzip () {
+        var zip = document.getElementById("usr").value
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://congress.api.sunlightfoundation.com//legislators/locate?zip=" + zip + "&apikey=6a668fb807334bbca5fee69cad4b1d96", false);
+        xhr.send();
+
+        console.log(xhr.status);
+        console.log(xhr.statusText);
+
+        while (xhr.status != 200){
+            var para = document.getElementById("invalid");
+            para.innerHTML = ("Invalid ZIP code");
+        }
+
+        // function displayinfo () {
+        var congressRepinfo = xhr.response
+       
+        // }
+        // split list into person
+        var splice = congressRepinfo.split('{"')
+        var text = ""
+        // individual rep info
+        for (var x = 2; x < splice.length - 1; x++) {
+            var spliceRep = splice[x].split(':"');
+            var chamber = spliceRep[3].substring(0,spliceRep[3].indexOf('"'));
+            var website = spliceRep[4].substring(0,spliceRep[4].indexOf('"'))
+            var district = spliceRep[5].substring(22,spliceRep[5].indexOf(',"f'))
+            var fax = spliceRep[7].substring(0,spliceRep[7].indexOf('"'))
+            var first_name = spliceRep[8].substring(0,spliceRep[8].indexOf('"'))
+            var last_name = spliceRep[11].substring(0,spliceRep[11].indexOf('"'))
+            var facebook = spliceRep[6].substring(0,spliceRep[6].indexOf('"'))
+            var email = spliceRep[14].substring(0,spliceRep[14].indexOf('"'))
+            var address = spliceRep[16].substring(0,spliceRep[16].indexOf('"'))
+            var party = spliceRep[17].substring(0,spliceRep[17].indexOf('"'))
+            var phone = spliceRep[18].substring(0,spliceRep[18].indexOf('"'))
+            var state = spliceRep[20].substring(0,spliceRep[20].indexOf('"'))
+            var term_start = spliceRep[22].substring(0,spliceRep[22].indexOf('"'))
+            var term_end = spliceRep[21].substring(0,spliceRep[21].indexOf('"'))
+            var twitter = spliceRep[25].substring(0,spliceRep[25].indexOf('"'))
+            text += first_name + " " + last_name + "<br><br>"
+            text += "Chamber: " + chamber +"<br><br>";
+            text += "Website: " + website + "<br><br>"
+            text += "District: " + district + "<br><br>"
+            text += "Fax: " + fax + "<br><br>"
+            text += "Facebook page: facebook.com/profile.php?id=" + facebook + "<br><br>"
+            text += "Email: " + email + "<br><br>"
+            text += "Office address: " + address + "<br><br>"
+            text += "Party: " + party + "<br><br>"
+            text += "Phone number: " + phone + "<br><br>"
+            text += "State: " + state + "<br><br>"
+            text += "Term start: " + term_start + "<br><br>"
+            text += "Term end: " + term_end + "<br><br>"
+            text += "Twitter account: " + twitter + "<br><br>"
+        }
+        var rep = document.getElementById("representative");
+        rep.innerHTML = text;
+    }
+    
+    </script>
+</body>
+</html>

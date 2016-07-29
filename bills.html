@@ -1,0 +1,128 @@
+<html>
+<head><link rel="stylesheet" type="text/css" href="polit.css">
+	<script src="polit.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://congress.api.sunlightfoundation.com/"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="billapi.js"></script>
+	<title>Bills</title>
+</head>
+<body>
+	<!-- This is for the navbar -->
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="politicswebsite.html">Home</a></li>
+      <li ><a href="congressapi.html">Congress</a></li>
+      <li><a href="#">Important Dates</a></li>
+      <li class="active"><a href="bills.html">Bills</a></li> 
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- End of nav bar -->
+
+	<h3>Recently passed bills</h3>
+	<h6>Choose your state</h6>
+<!-- dropdown -->
+	<div class="dropdown">
+	<select id="selector" onchange="getBillsByState(this.options[this.selectedIndex].value)">
+		<option value="al">Alabama</option>
+		<option value="ak">Alaska</option>
+		<option value="az">Arizona</option>
+		<option value="ar">Arkansas</option>
+		<option value="ca">California</option>
+		<option value="co">Colorado</option>
+		<option value="ct">Connecticut</option>
+		<option value="de">Delaware</option>
+		<option value="dc">District of Columbia</option>
+		<option value="fl">Florida</option>
+		<option value="ga">Georgia</option>
+		<option value="hi">Hawaii</option>
+		<option value="id">Idaho</option>
+		<option value="il">Illinois</option>
+		<option value="in">Indiana</option>
+		<option value="ia">Iowa</option>
+		<option value="ks">Kansas</option>
+		<option value="ky">Kentucky</option>
+		<option value="la">Louisiana</option>
+		<option value="me">Maine</option>
+		<option value="md">Maryland</option>
+		<option value="ma">Massachusetts</option>
+		<option value="mi">Michigan</option>
+		<option value="mn">Minnesota</option>
+		<option value="ms">Mississippi</option>
+		<option value="mo">Missouri</option>
+		<option value="mt">Montana</option>
+		<option value="ne">Nebraska</option>
+		<option value="nv">Nevada</option>
+		<option value="nh">New Hampshire</option>
+		<option value="nj">New Jersey</option>
+		<option value="nm">New Mexico</option>
+		<option value="ny">New York</option>
+		<option value="nc">North Carolina</option>
+		<option value="nd">North Dakota</option>
+		<option value="oh">Ohio</option>
+		<option value="ok">Oklahoma</option>
+		<option value="or">Oregon</option>
+		<option value="pa">Pennsylvania</option>
+		<option value="pr">Puerto Rico</option>
+		<option value="ri">Rhode Island</option>
+		<option value="sc">South Carolina</option>
+		<option value="sd">South Dakota</option>
+		<option value="tn">Tennessee</option>
+		<option value="tx">Texas</option>
+		<option value="ut">Utah</option>
+		<option value="vt">Vermont</option>
+		<option value="va">Virginia</option>
+		<option value="wa">Washington</option>
+		<option value="wv">West Virginia</option>
+		<option value="wi">Wisconsin</option>
+		<option value="wy">Wyoming</option>
+		</select>
+	</div>
+<!-- end dropdown -->
+	<p id="text"></p>
+</body>
+<script>
+function getBillsByState(state_ab){
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://openstates.org/api/v1/bills/?state="+state_ab+"&q=taxi&apikey=d98ea23789b2497a9c5ddef90be18e78", false);
+xhr.send();
+
+console.log(xhr.status);
+console.log(xhr.statusText);
+
+var st = xhr.response
+var ts = document.getElementById("text");
+
+var spliced = st.split('{');
+var text="";
+
+for (var x=1;x<spliced.length;x++){
+	
+	var inn = spliced[x].split(': "');
+	var title = inn[1].substring(0,inn[1].indexOf('"'));
+	var date_created = inn[2].substring(0,inn[2].indexOf(' '));
+	var date_updated = inn[3].substring(0,inn[3].indexOf(' '));
+	var chamber = inn[5].substring(0,inn[5].indexOf('"'));
+	var new_line = "<br>";
+	text += "<b>Bill:</b> "+title+new_line;
+	text += "<b>Date Created:</b> "+date_created+new_line;
+	text += "<b>Date Updated:</b> "+date_updated+new_line;
+	text += "<b>Chamber:</b> "+chamber+new_line;
+	text += new_line;
+}
+ts.innerHTML = text;
+}
+</script>
+</html>
