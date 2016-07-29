@@ -1,0 +1,23 @@
+
+
+body { background-color: LavenderBlush;
+}
+
+p {
+	font-size: 20px; font-family: "verdana"; 
+}
+ h1 {
+ 	text-align: "center";
+ }
+ footer {
+ 	font-size: 20px;
+ }
+
+.myCarousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 200px;
+  max-width: none;
+}
