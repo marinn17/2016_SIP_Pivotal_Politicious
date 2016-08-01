@@ -1,0 +1,84 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://congress.api.sunlightfoundation.com/"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bills</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="politicswebsite.html">Home</a></li>
+      <li ><a href="congressapi.html">Congress</a></li>
+      <li><a href="#">Important Dates</a></li>
+      <li class="active"><a href="bills.html">Bills</a></li> 
+    </ul>
+   <ul class="nav navbar-nav navbar-right">
+      <li><a href="testuser.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="testuserlogin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<p id="text">testing API</p>
+
+<script>
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://www.govtrack.us/api/v2/bill?congress=114", false);
+	xhr.send();
+
+	console.log(xhr.status);
+	console.log(xhr.statusText);
+
+	var allbills = xhr.response
+	var ptag = document.getElementById("text");
+	var text = "";
+	var allbillscut = allbills.substring(allbills.indexOf('objects')+11);
+	var billarray = allbillscut.split('bill_resolution_type": ');
+	
+	for (var x=1;x<billarray.length;x++){
+		var bill = billarray[x];
+		var official_title = bill.substring(bill.lastIndexOf('display')+29,bill.lastIndexOf("}")-15);
+		var desc = bill.substring(bill.indexOf("current_status_description")+30,bill.indexOf("current_status_label")-8);
+		var intro_date = bill.substring(bill.indexOf('introduced_date')+19,bill.indexOf('is_alive')-8);
+		var bill_type = bill.substring(bill.indexOf("noun")+8,bill.indexOf('"number')-7);
+		var bill_id = bill.substring(bill.indexOf("display_number")+18,bill.indexOf("docs_house_gov_postdate")-8);
+		var cur_status = bill.substring(bill.indexOf("current_status")+18,bill.indexOf("current_status_date")-8);
+		if (cur_status=="referred"){
+			cur_status = "Referred to a committee in the originating chamber. ";
+		}
+		else if (cur_status=="pass_over_house"){
+			cur_status = "Passed the House, waiting for a Senate vote next. "
+		}
+		else if (cur_status=="passed_simpleres"){
+			cur_status = "The simple resolution was agreed to in the chamber in which it was introduced. This is a simple resolution's final status. "
+		}
+		else if (cur_status=="enacted_signed"){
+			cur_status = "Enacted by a signature of the President. "
+		} 
+		else if (cur_status=="reported"){
+			cur_status = "Reported by a committee in the originating chamber. "
+		}
+		else {
+			cur_status += "NOT CHANGED";
+		}
+		var line = "<br>";
+		text += "<b>Title:</b> "+official_title+line;
+		text += "<b>Date Introduced:</b> "+intro_date +line;
+		text += "<b>Type:</b> "+bill_type+line;
+		text += "<b>ID:</b> "+bill_id+line;
+		text += "<b>Current Status:</b> "+cur_status+desc+line;
+		text += line;
+		
+	}
+	ptag.innerHTML = text;
+	</script>
+</body>
+</html>
