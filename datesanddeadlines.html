@@ -16,6 +16,12 @@
       line-height: 1.8;
       color: #818181;
   }
+  h1 {
+      font-size: 30px;
+       color: #f4511e;
+       font-family: verdana;
+
+  }
   h2 {
       font-size: 24px;
       text-transform: uppercase;
@@ -34,12 +40,12 @@
   h5 {
   	font-size: 25px;
   	font-style: bold;
-  	color: black;
+  	color: #f4511e;
   	font-family: verdana;
 
   }
   .jumbotron {
-      background-color: orange;
+      background-color: #f4511e;
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
@@ -89,7 +95,7 @@
       font-style: normal;
   }
   .panel {
-      border: 1px solid #f4511e; 
+       
       border-radius:0 !important;
       transition: box-shadow 0.5s;
   }
@@ -202,69 +208,6 @@
 ul {list-style-type: none;}
 body {font-family: Verdana,sans-serif;}
 
-.month {
-    padding: 70px 25px;
-    width: 100%;
-    background: #1abc9c;
-}
-
-.month ul {
-    margin: 0;
-    padding: 0;
-}
-
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color: #ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 13.6%;
-    color: #666;
-    text-align: center;
-}
-
-.days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 13.6%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
-
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}
@@ -315,66 +258,13 @@ body {font-family: Verdana,sans-serif;}
       <a href= "https://ballotpedia.org/United_States_Congress_elections,_2016">Choose your state's representatives</a>
     </div>
   </div>
- 
+ <div class="panel panel-default">
+  <div class="panel-body"></div>
+</div>
 
 
 <h1>Political Calendar</h1>
-
-<div class="month">      
-  <ul>
-    <li class="prev">❮</li>
-    <li class="next">❯</li>
-    <li style="text-align:center">
-      August<br>
-      <span style="font-size:18px">2016</span>
-    </li>
-  </ul>
-</div>
-
-<ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
-</ul>
-
-<ul class="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li><span class="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-
+<iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2366cccc&amp;src=ehi17rc9jkbkl4bkgtngf6rbvs%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FLos_Angeles" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>
 <!-- Container (Portfolio Section) -->
@@ -438,7 +328,13 @@ body {font-family: Verdana,sans-serif;}
     </a>
   </div>
 </div>
+ <div class="panel panel-default">
+  <div class="panel-body"></div>
+</div>
 <h5> Where it all Happens </h5>
+<p>
+  1600 Pennsylvania Avenue- the home address of every president since John Adams in 1800. Here, the president puts his signature on laws and policies, has important meetings with visiting diplomats, and keeps up to date with the events in the nation. It's been the heart of American politics for generations, and continues to serve as an iconic symbol of our nation. Find out more about the history and function of the White House at <a href=https://www.whitehouse.gov/about/inside-white-house>https://www.whitehouse.gov/about/inside-white-house</a>
+</p>
 <div id="googleMap" style="height:400px;width:100%;"></div>
 
 <!-- Add Google Maps -->
