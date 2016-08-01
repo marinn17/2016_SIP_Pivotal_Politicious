@@ -48,6 +48,9 @@
 		var official_title = bill.substring(bill.lastIndexOf('display')+29,bill.lastIndexOf("}")-15);
 		var desc = bill.substring(bill.indexOf("current_status_description")+30,bill.indexOf("current_status_label")-8);
 		var intro_date = bill.substring(bill.indexOf('introduced_date')+19,bill.indexOf('is_alive')-8);
+		var d = intro_date.split("-");
+		var da = d[2]+"/"+d[1]+"/"+d[0]
+		
 		var bill_type = bill.substring(bill.indexOf("noun")+8,bill.indexOf('"number')-7);
 		var bill_id = bill.substring(bill.indexOf("display_number")+18,bill.indexOf("docs_house_gov_postdate")-8);
 		var cur_status = bill.substring(bill.indexOf("current_status")+18,bill.indexOf("current_status_date")-8);
@@ -71,7 +74,7 @@
 		}
 		var line = "<br>";
 		text += "<b>Title:</b> "+official_title+line;
-		text += "<b>Date Introduced:</b> "+intro_date +line;
+		text += "<b>Date Introduced:</b> "+da +line;
 		text += "<b>Type:</b> "+bill_type+line;
 		text += "<b>ID:</b> "+bill_id+line;
 		text += "<b>Current Status:</b> "+cur_status+desc+line;
