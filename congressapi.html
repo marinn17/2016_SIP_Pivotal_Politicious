@@ -7,8 +7,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-<link rel="stylesheet" type="text/css" href="politicswebsite.css">
+  
+
+<link rel="stylesheet" type="text/css" href="pages.css">
     <title>Congress</title>
 </head>
 <body>
@@ -24,6 +25,7 @@
       <li class="active"><a href="congressapi.html">Congress</a></li>
       <li><a href="#">Important Dates</a></li> 
       <li><a href="bills.html">Bills</a></li>
+      <li><a href="upcomingevents.html">Upcoming Events</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -43,32 +45,23 @@
 
     <p id="representative"></p>
     
+    
+
     <script>
     function getzip () {
         var zip = document.getElementById("usr").value
-
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "https://congress.api.sunlightfoundation.com//legislators/locate?zip=" + zip + "&apikey=6a668fb807334bbca5fee69cad4b1d96", false);
         xhr.send();
-
         console.log(xhr.status);
         console.log(xhr.statusText);
-
-        while (xhr.status != 200){
-            var para = document.getElementById("invalid");
-            para.innerHTML = ("Invalid ZIP code");
-        }
-
-        // function displayinfo () {
         var congressRepinfo = xhr.response
-       
-        // }
-        // split list into person
         var splice = congressRepinfo.split('{"')
         var text = ""
         // individual rep info
         for (var x = 2; x < splice.length - 1; x++) {
             var spliceRep = splice[x].split(':"');
+            var member_id = spliceRep[1].substring(0,spliceRep[1].indexOf('"'));
             var chamber = spliceRep[3].substring(0,spliceRep[3].indexOf('"'));
             var website = spliceRep[4].substring(0,spliceRep[4].indexOf('"'))
             var district = spliceRep[5].substring(22,spliceRep[5].indexOf(',"f'))
@@ -85,7 +78,10 @@
             var term_end = spliceRep[21].substring(0,spliceRep[21].indexOf('"'))
             var twitter = spliceRep[25].substring(0,spliceRep[25].indexOf('"'))
             text += first_name + " " + last_name + "<br><br>"
-            text += "Chamber: " + chamber +"<br><br>";
+            var temp = "Find out more about your representative" + "<br><br>"
+            temp = temp.link ("membervote.html?member_id=" + member_id)
+            text += temp
+            text += "Chamber: " + chamber + "<br><br>";
             text += "Website: " + website + "<br><br>"
             text += "District: " + district + "<br><br>"
             text += "Fax: " + fax + "<br><br>"
@@ -98,9 +94,12 @@
             text += "Term start: " + term_start + "<br><br>"
             text += "Term end: " + term_end + "<br><br>"
             text += "Twitter account: " + twitter + "<br><br>"
+            text += "<br><br>"
+
         }
         var rep = document.getElementById("representative");
         rep.innerHTML = text;
+
     }
     
     </script>
