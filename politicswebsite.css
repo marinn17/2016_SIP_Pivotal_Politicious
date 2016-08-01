@@ -53,8 +53,10 @@ p {
 	font-family: 'Open Sans', sans-serif; 
 	font-size: 18px;
 	font-weight: 200; 
-	line-height: 24px;  
-	margin: 0 0 14px;
+	line-height: 1.75;
+	margin-top: 20px;  
+	margin-right: 100px;
+	margin-left: 100px;
 }
 
 .navbar a {
@@ -78,8 +80,6 @@ video#bgvid {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    /*background: url(polina.jpg) no-repeat;
-    background-size: cover; */
 }
 
 .overlay {
