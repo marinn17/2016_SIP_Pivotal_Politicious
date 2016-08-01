@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://congress.api.sunlightfoundation.com/"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Congress</title>
+</head>
+<body>
+
+<!-- This is for the navbar -->
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="politicswebsite.html">Home</a></li>
+      <li class="active"><a href="congressapi.html">Congress</a></li>
+      <li><a href="#">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+      <li><a href="upcomingevents.html">Upcoming Events</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<!-- End of nav bar -->
+<h1>Find your House and Senate representative</h1>
+    <!-- input and button not finished -->
+    <div class="form-group">
+      <label for="usr">Enter your ZIP code:</label>
+      <input type="text" class="form-control" id="usr">
+    </div>
+    <p id="invalid"></p>
+    <button type="button" class="btn btn-default" onclick="getzip()">Submit</button>
+
+    <p id="representative"></p>
+    
+    
+
+    <script>
+    function getzip () {
+        var zip = document.getElementById("usr").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://congress.api.sunlightfoundation.com//legislators/locate?zip=" + zip + "&apikey=6a668fb807334bbca5fee69cad4b1d96", false);
+        xhr.send();
+        console.log(xhr.status);
+        console.log(xhr.statusText);
+        var congressRepinfo = xhr.response
+        var splice = congressRepinfo.split('{"')
+        var text = ""
+        var next_line = "<br>"
+        // individual rep info
+        for (var x = 2; x < splice.length - 1; x++) {
+            var congress_person = splice[x];
+            // var spliceRep = splice[x].split(':"');
+            var member_id = congress_person.substring(congress_person.indexOf("bioguide_id"),congress_person.indexOf("birthday"))
+            var chamber = congress_person.substring(congress_person.indexOf("chamber")+10,congress_person.indexOf("contact_form")-3)
+            var website = congress_person.substring(congress_person.indexOf("website")+10,congress_person.indexOf("youtube_id")-3)
+            var district = congress_person.substring(congress_person.indexOf("district")+10,congress_person.indexOf("facebook_id")-2)
+            var fax = congress_person.substring(congress_person.indexOf("fax")+6,congress_person.indexOf("fec_ids")-3)
+            var first_name = congress_person.substring(congress_person.indexOf("first_name")+13,congress_person.indexOf("gender")-3)
+            if (congress_person.indexOf("lis_id")==-1){
+                var last_name = congress_person.substring(congress_person.indexOf("last_name")+12,congress_person.indexOf("middle_name")-3)
+            }
+            else {
+                var last_name = congress_person.substring(congress_person.indexOf("last_name")+12,congress_person.indexOf("lis_id")-3)
+            }
+            var facebook = congress_person.substring(congress_person.indexOf("facebook_id")+14,congress_person.indexOf("fax")-3)
+            var email = congress_person.substring(congress_person.indexOf("oc_email")+11,congress_person.indexOf("ocd_id")-3)
+            var address = congress_person.substring(congress_person.indexOf('"office')+10,congress_person.indexOf("party")-3)
+            var party = congress_person.substring(congress_person.indexOf("party")+8,congress_person.indexOf("phone")-3)
+            if (party=="D"){
+                party = "Democrat";
+            }
+            else {
+                party = "Republican";
+            }
+            if (congress_person.indexOf("senate_class")==-1){
+                var phone = congress_person.substring(congress_person.indexOf("phone")+8,congress_person.indexOf('state"')-3)
+            }
+            else {
+                var phone = congress_person.substring(congress_person.indexOf("phone")+8,congress_person.indexOf('senate_class"')-3)
+            }
+            var state = congress_person.substring(congress_person.indexOf("state_name")+13,congress_person.indexOf("term_end")-3)
+            var term_start = congress_person.substring(congress_person.indexOf("term_start")+13,congress_person.indexOf("thomas_id")-3)
+            var term_end = congress_person.substring(congress_person.indexOf("term_end")+11,congress_person.indexOf("term_start")-3)
+            var twitter = congress_person.substring(congress_person.indexOf("twitter_id")+13,congress_person.indexOf("votesmart_id")-3)
+            text += first_name + " " + last_name + next_line
+            text += "Term start: " + term_start + next_line
+            text += "Term end: " + term_end + next_line
+            text += "District: " + district + next_line
+            text += "Chamber: " + chamber + next_line
+            text += "Party: " + party + next_line
+            var website_page = "Website" + next_line
+            text += website_page.link(website); 
+            var next_page = "Find out more about your representative" + next_line
+            text += next_page.link ("membervote.html?member_id=" + member_id)
+            text += "Fax: " + fax + next_line
+            text += "Email: " + email + next_line
+            text += "Office address: " + address + next_line
+            text += "Phone number: " + phone + next_line
+            var facebook_page = "Facebook" + next_line
+            text += facebook_page.link("https://www.facebook.com/profile.php?id=" + facebook)
+            var twitter_page = "Twitter account" + next_line
+            text += twitter_page.link("https://www.twitter.com/"+twitter)
+            text += next_line+next_line
+        }
+        var rep = document.getElementById("representative");
+        rep.innerHTML = text;
+    }
+    
+    </script>
+</body>
+</html>
