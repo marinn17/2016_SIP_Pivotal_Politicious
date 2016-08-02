@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
@@ -10,58 +9,59 @@
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <style>
-  body {
-      font: 400 15px Lato, sans-serif;
-      line-height: 1.8;
-      color: #818181;
-  }
-  h1 {
-      font-size: 30px;
-       color: #f4511e;
-       font-family: verdana;
+  <!-- fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="datesanddeadlines.css">
 
-  }
-  h2 {
-      font-size: 24px;
-      text-transform: uppercase;
-      color: #303030;
-      font-weight: 600;
-      margin-bottom: 30px;
-  }
-  h4 {
-      font-size: 24px;
-      line-height: 1.375em;
-      color: #303030;
-      font-weight: 400;
-      margin-bottom: 30px;
+  <!-- This is for the navbar -->
+  <nav class="navbar navbar-inverse"> 
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="politicswebsite.html">Home</a></li>
+      <li><a href="newcongressapi.html">Congress</a></li>
+      <li class="active"><a href="datesanddeadlines.html">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+      <li><a href="upcomingevents.html">Upcoming Events</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Voters
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="young.html">Young voters</a></li>
+          <li><a href="votinglaws.html">Voting information</a></li>
+          <li><a href="youngvoters1.html">Voting statistics</a></li>
+        </ul>
+      </div>
+    </ul>
+    <!-- <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul> -->
+  </div>
+</nav>
+<!-- End of nav bar -->
 
-  }  
-  h5 {
-  	font-size: 25px;
-  	font-style: bold;
-  	color: #f4511e;
-  	font-family: verdana;
-
-  }
+  <style>  
   .jumbotron {
-      background-color: #f4511e;
+      background-color: gray;
+      opacity: 0.8;
       color: #fff;
-      padding: 100px 25px;
+      padding: 150px 150px;
+      margin-top: -20px;
       font-family: Montserrat, sans-serif;
   }
-  .container-fluid {
-      padding: 60px 50px;
-  }
+  
   .bg-grey {
       background-color: #f6f6f6;
   }
   .logo-small {
-      color: #f4511e;
+      color: black;
       font-size: 50px;
   }
   .logo {
-      color: #f4511e;
+      color: black;
       font-size: 200px;
   }
   .thumbnail {
@@ -76,13 +76,13 @@
   }
   .carousel-control.right, .carousel-control.left {
       background-image: none;
-      color: #f4511e;
+      color: black;
   }
   .carousel-indicators li {
-      border-color: #f4511e;
+      border-color: gray;
   }
   .carousel-indicators li.active {
-      background-color: #f4511e;
+      background-color: gray;
   }
   .item h4 {
       font-size: 19px;
@@ -103,13 +103,12 @@
       box-shadow: 5px 0px 40px rgba(0,0,0, .2);
   }
   .panel-footer .btn:hover {
-      border: 1px solid #f4511e;
       background-color: #fff !important;
-      color: #f4511e;
+      color: black;
   }
   .panel-heading {
-      color: #fff !important;
-      background-color: #f4511e !important;
+      color: black !important;
+      background-color: black !important;
       padding: 25px;
       border-bottom: 1px solid transparent;
       border-top-left-radius: 0px;
@@ -129,10 +128,10 @@
   }
   .panel-footer .btn {
       margin: 15px 0;
-      background-color: #f4511e;
-      color: #fff;
+      background-color: black;
+      color: black;
   }
-  .navbar {
+  /*.navbar {
       margin-bottom: 0;
       background-color: #f4511e;
       z-index: 9999;
@@ -153,12 +152,12 @@
   .navbar-default .navbar-toggle {
       border-color: transparent;
       color: #fff !important;
-  }
-
+  }*/
   footer .glyphicon {
       font-size: 20px;
-      margin-bottom: 20px;
-      color: #f4511e;
+      margin-top: 50px;
+      margin-bottom: 10px;
+      color: gray;
   }
   .slideanim {visibility:hidden;}
   .slide {
@@ -206,23 +205,20 @@
   <style>
 * {box-sizing:border-box;}
 ul {list-style-type: none;}
-body {font-family: Verdana,sans-serif;}
-
 /* Add media queries for smaller screens */
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}
 }
-
 @media screen and (max-width: 420px) {
     .weekdays li, .days li {width: 12.5%;}
     .days li .active {padding: 2px;}
 }
-
 @media screen and (max-width: 290px) {
     .weekdays li, .days li {width: 12.2%;}
 }
   </style>
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <div class="jumbotron text-center">
@@ -263,7 +259,7 @@ body {font-family: Verdana,sans-serif;}
 </div>
 
 
-<h1>Political Calendar</h1>
+<h2>Political Calendar</h2>
 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2366cccc&amp;src=ehi17rc9jkbkl4bkgtngf6rbvs%40group.calendar.google.com&amp;color=%23B1440E&amp;ctz=America%2FLos_Angeles" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 </body>
 </html>
@@ -341,7 +337,6 @@ body {font-family: Verdana,sans-serif;}
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 var myCenter = new google.maps.LatLng(38.896908,-77.035386);
-
 function initialize() {
 var mapProp = {
   center:myCenter,
@@ -350,16 +345,12 @@ var mapProp = {
   draggable:false,
   mapTypeId:google.maps.MapTypeId.ROADMAP
   };
-
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
 var marker = new google.maps.Marker({
   position:myCenter,
   });
-
 marker.setMap(map);
 }
-
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
@@ -367,7 +358,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
-  <p>Politicious: Here to help you get educated </p>
+  <p class="foot">Politicious: Here to help you get educated </p>
 </footer>
 
 <script>
@@ -378,10 +369,8 @@ $(document).ready(function(){
     if (this.hash !== "") {
       // Prevent default anchor click behavior
       event.preventDefault();
-
       // Store hash
       var hash = this.hash;
-
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
@@ -397,7 +386,6 @@ $(document).ready(function(){
   $(window).scroll(function() {
     $(".slideanim").each(function(){
       var pos = $(this).offset().top;
-
       var winTop = $(window).scrollTop();
         if (pos < winTop + 600) {
           $(this).addClass("slide");
@@ -412,6 +400,3 @@ $(document).ready(function(){
 
 
 <a href="http://www.fairvote.org/primaries#17_year_old_voting_congressional_primaries">
-
-
-
