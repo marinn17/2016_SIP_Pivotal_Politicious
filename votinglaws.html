@@ -1,14 +1,47 @@
-<!DOCTYPE html>
 <html>
 <body>
 <link rel="stylesheet" type="text/css" href="votinglaws.css">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Voting Information</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="votinglaws.css">
+
+  <!-- This is for the navbar -->
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="politicswebsite.html">Home</a></li>
+      <li><a href="newcongressapi.html">Congress</a></li>
+      <li><a href="datesanddeadlines.html">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+      <li><a href="upcomingevents.html">Upcoming Events</a></li>
+      <li class="active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Voters
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="young.html">Young voters</a></li>
+          <li><a href="votinglaws.html">Voting information</a></li>
+          <li><a href="youngvoters1.html">Voting statistics</a></li>
+        </ul>
+      </div>
+    </ul>
+    <!-- <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul> -->
+  </div>
+</nav>
+<!-- End of nav bar -->
+
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -28,7 +61,6 @@
       min-height:200px; 
       max-height:350px;
   }
-
   /* Hide the carousel text when the screen is less than 600 pixels wide */
   @media (max-width: 500px) {
     .carousel-caption {
@@ -79,7 +111,7 @@
   <h3>Information for Voters</h3><br>
   <div class="row">
     <div class="col-sm-4">
-      <img src="map.jpg" alt="Map"" class="img-responsive" width:100%">
+      <img src="map.jpg" alt="Map" class="img-responsive" style="width:100%; height:auto">
       <p>Congress Representatives</p>
     </div>
     <div class="col-sm-4"> 
@@ -87,7 +119,7 @@
       <p>Voter ID Laws</p> 
     </div>
     <div class="col-sm-4"> 
-      <img src="turnout.jpg" style="width:100%" class="img-responsive" alt="Turnout">
+      <img src="turnout.jpg" style="width:100%; height:auto" class="img-responsive" alt="Turnout">
       <p>Voter Turnout</p> 
     </div>
   </div>
@@ -124,7 +156,7 @@
   <div class="panel-body"></div>
   <h1 align="center">State-specific Voting Laws
 </h1>
-<p align="center">Does your state allow paid time off to vote?
+<p class="end" align="center">Does your state allow paid time off to vote?
 <a href="http://www.findlaw.com/voting-rights-law.html">Click here to find out
 </a>
 </p>
