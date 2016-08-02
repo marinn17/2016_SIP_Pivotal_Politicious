@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com - No Copyright -->
@@ -9,22 +8,95 @@
   <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
+  <!-- This is for the navbar -->
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="politicswebsite.html">Politicious</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="politicswebsite.html">Home</a></li>
+      <li><a href="newcongressapi.html">Congress</a></li>
+      <li><a href="datesanddeadlines.html">Important Dates</a></li> 
+      <li><a href="bills.html">Bills</a></li>
+      <li><a href="upcomingevents.html">Upcoming Events</a></li>
+      <li class="active">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Voters
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="young.html">Young voters</a></li>
+          <li><a href="votinglaws.html">Voting information</a></li>
+          <li><a href="youngvoters1.html">Voting statistics</a></li>
+        </ul>
+      </div>
+    </ul>
+  </div>
+</nav>
+<!-- End of nav bar -->
+
   <style>
   body {
-      font: 20px Montserrat, sans-serif;
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    line-height: 1.8;
+      /*font: 20px Montserrat, sans-serif;
       line-height: 1.8;
-      color: #f5f6f7;
+      color: #f5f6f7;*/
   }
-  p {font-size: 16px;}
+
+  .navbar a {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+  }
+
   .margin {margin-bottom: 45px;}
+
   .bg-1 {
-      background-color: MediumAquaMarine; /* Green */
-      color: #ffffff;
+    margin-top: -20px; 
+    background-color: MediumAquaMarine; /* Green */
+    color: #ffffff;
+    padding: 60px 60px;
+    opacity: 0.95;
   }
+
+  .future {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 52px;
+    font-weight: 300;
+    text-align: center;
+  }
+
   .bg-2 {
-      background-color: orange; /* Dark Blue */
+      background-color: orange; 
       color: #ffffff;
+      padding: 30px 30px;
+      opacity: 0.95;
   }
+
+  h3 {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 31px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .primary {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 17px;
+    font-weight: 400;
+    margin-right: 100px; 
+    margin-left: 100px;
+    margin-top: -25px;
+    margin-bottom: 10px;
+  }
+
   .bg-3 {
       background-color: #ffffff; /* White */
       color: #555555;
@@ -33,114 +105,116 @@
       background-color: #2f2f2f; /* Black Gray */
       color: #fff;
   }
-  .container-fluid {
+  /*.container-fluid {
       padding-top: 70px;
       padding-bottom: 70px;
+  }*/
+
+  h2 {
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 34px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 100px;
   }
-  .navbar {
-      padding-top: 15px;
-      padding-bottom: 15px;
-      border: 0;
-      border-radius: 0;
-      margin-bottom: 0;
-      font-size: 12px;
-      letter-spacing: 5px;
-  }
-  .navbar-nav  li a:hover {
-      color: #1abc9c !important;
-  }
+
   h4 {
-  font-family:"Tahoma";
-  font-size: 25px;
+  font-family:"Open Sans";
+  font-size: 28px;
+  font-weight: 400;
   color: orange;
+  margin-top: -25px;
   }
   h5 {
-  font-family:"Tahoma";
-  font-size: 25px;
+  font-family:"Open Sans";
+  font-size: 28px;
+  font-weight: 400;
   color: MediumAquaMarine;
+  margin-top: -25px;
   }
+  h6 {
+  font-family:"Open Sans";
+  font-size: 28px;
+  font-weight: 400;
+  color: orange;
+  margin-top: -25px;
+  }
+
+.img-responsive {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 img {
   display:block;
-  margin:auto;
-  width:100%;
+  /*margin:auto;*/
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width:600px;
+  height: 600px;
 }
+
+.col-md-1 {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
   </style>
 </head>
+
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">POLITICIOUS</a></li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
-  <h3 class="margin">Who are you?</h3>
-  <img src="hands.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="250" height="250">
-  <h3><a href="http://www.rockthevote.com/">You are the future.</a></h3>
+  <h3 class="future">Who are you?</h3>
+  <img src="hands.png" class="img-responsive img-circle margin" style="display:inline" alt="Bird">
+  <h3 class="future"><a href="http://www.rockthevote.com/">You are the future.</a></h3>
 </div>
 
 <!-- Second Container -->
 <div class="container-fluid bg-2 text-center">
   <h3 class="margin">What can you do?</h3>
-  <p> Did you know many states allow 17 year olds to vote in the primaries? 22 states now allow citizens who will be 18 years old on or before a general election to vote in their party’s corresponding primary or caucus. Look up your state to find its policy on early voters. </p>
+  <p class="primary"> Did you know many states allow 17 year olds to vote in the primaries? 22 states now allow citizens who will be 18 years old on or before a general election to vote in their party’s corresponding primary or caucus. Look up your state to find its policy on early voters. </p>
   <a href="http://www.fairvote.org/primary_voting_at_age_17" class="btn btn-default btn-lg">
     <span class="glyphicon glyphicon-search"></span> Find my State
   </a>
 </div>
-<img class="img-responsive" src="moreyouth.png" alt="moreyouth" "width=100%">
+<img class="img-responsive" src="moreyouth.png" alt="moreyouth" style="width:850px; height:auto">
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">
-  <h3 class="margin">So Why is Voting so Important?</h3><br>
+  <h2 class="margin">So Why is Voting so Important?</h2><br>
   <div class="row">
     <div class="col-sm-4">
       <h4>It makes a difference </h4>
       <p>Many young people cite feeling as though their vote doesn’t count, among millions of others, as their reason for not participating in elections. However much it may feel like this, it simply isn’t the case. Obama’s popularity with youth voters may have been one of the key factors that helped him to win the 2008 election, giving him a large margin over competitors in a number of key states. In recent years, many elections have come down to a few hundred votes, and the election debacle in 2000 is not to be forgotten anytime soon. You vote does matter, maybe more than you realize.</p>
-      <img src="decide.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+      <img src="decide.jpg" class="img-responsive margin" style="width:90%" alt="Image">
     </div>
     <div class="col-sm-4">
       <h5> It's important to start early </h5>
       <p>Participating in politics is a hard-won right in our nation, but it’s one that Americans of all ages don’t freely exercise as often as they should. Building a relationship with the political process early on is key to making it a lifelong habit. If you’ve always voted in elections, you’ll be much less likely to skip a vote in the future. This sort of habit-forming participation is key if we’re to create laws and elect leaders who represent the needs of both young and old alike in our country.</p>
-      <img src="rock.jpg" class="img-responsive margin" style="width:100%" alt="Rock">
+      <img src="rock.jpg" class="img-responsive margin" style="width:90%" alt="Rock">
     </div>
 
     <div class="col-sm-4">
-    <h4> It helps millenial voices be heard </h4>
+    <h6> It helps millenial voices be heard </h6>
 
       <p>While young people make up a large portion of voters, they’re much less likely than those who are older to get out and vote. In the 2004 elections, 70% of those between 45 and 59 voted, 73% of those between 60 and 74, and 69% of those 75 and older. It’s not hard to guess that the needs, desires, and beliefs of those generations might be pretty different than young people’s, and the significantly higher numbers of older Americans who come out to vote may be skewing presidential choices and legislation away from the needs of young voters. If young voters want candidates to cater to their needs, they need to get out and vote.
       </p>
-      <img src="young.png" class="img-responsive margin" style="width:100%" alt="Young">
+      <img src="young.png" class="img-responsive margin" style="width:90%" alt="Young">
     </div>
   </div>
 </div>
 <div class="container-fluid">
   <div class="col-md-1">
-    <img src="college.jpg" alt="College">
+    <img src="college.jpg" class="img-responsive" alt="College">
   </div>
 </div>
 
 
-<!-- Footer -->
-<footer class="container-fluid bg-4 text-center">
-  <p>Politicious </p>
-</footer>
-
 </body>
 </html>
-
